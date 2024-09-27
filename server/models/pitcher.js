@@ -19,4 +19,12 @@ const Investment = mongoose.model('Investment', {
     }
 })
 
-module.exports = { Pitcher, Investment }
+const InvestmentWindow = mongoose.model('InvestWindow', {
+    pitcher: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Pitcher'
+    },
+    enabled: Boolean
+})
+
+module.exports = { Pitcher, Investment, InvestmentWindow }
