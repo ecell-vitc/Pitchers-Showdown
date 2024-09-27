@@ -11,7 +11,10 @@ const User = mongoose.model('User', {
         type: String,
         set: pass => bcrypt.hashSync(pass, 5)
     },
-    name: String, credits: Number,
+    name: String, credits: {
+        type: Number,
+        default: 100000000
+    },
 })
 User.check_password = (pass, enc) => bcrypt.compareSync(pass, enc)
 

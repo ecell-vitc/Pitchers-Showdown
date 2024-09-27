@@ -13,10 +13,7 @@ const Investment = mongoose.model('Investment', {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Pitcher'
     },
-    amt: {
-        type: Number,
-        default: 100000000
-    }
+    amt: Number
 })
 
 const InvestmentWindow = mongoose.model('InvestWindow', {
