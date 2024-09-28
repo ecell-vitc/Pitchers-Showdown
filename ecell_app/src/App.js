@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './containers/Home'
 import About from './containers/About'
-import SignUp from './containers/Signup'
+import Login from './containers/Login'
 import Leaderboard from './containers/Leaderboard'
 
 const App = () => {
@@ -14,8 +14,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/business_about" element={<About />} />
-        <Route path="/login" element={<SignUp /> } />
-        <Route path="/admin/login" element={<SignUp admin="true" />} />
+        <Route path="/login" element={<Login /> } />
+        <Route path="/admin/login" element={<Login admin="true" />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
       </Routes>
       {/* <Footer /> */}
