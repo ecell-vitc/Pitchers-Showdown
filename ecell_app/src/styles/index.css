@@ -1,0 +1,88 @@
+/* Login Page */
+
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #FFFFFF; /* Warna latar belakang utama */
+  }
+  
+  .container {
+    width: 500px;
+    max-width: 400px;
+  }
+  
+  .card {
+    /* background-color: #3498db; Warna latar card */
+    background-color: #070738;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF; /* Warna teks pada card */
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  
+  input {
+    padding: 20px;
+    margin-bottom: 12px;
+    border: 1px solid #3498db; /* Warna border input */
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out;
+    outline: none; /* Hapus outline pada saat focus */
+  }
+  
+  input:focus {
+    border-color: #2980b9; /* Warna border input saat focus */
+  }
+  
+  button {
+    background-color: #FFFFFF; /* Warna latar button */
+    color: #070738;
+    padding: 10px;
+    border: none;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+/*   
+  button:hover {
+    background-color: #000000;
+    color: #FFFFFF
+  }
+   */
+
+/* LeaderBoard Page */ 
+table {
+    width: 600px;
+    box-shadow: 5px 10px 10px #000000;
+}
+
+table thead th {
+    text-align: left;
+    padding: 1rem;
+}
+
+table tbody  tr td {
+    padding: 1rem;
+}
