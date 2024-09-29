@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
-const BusinessList = require('./routes/BusinessList');
+const BusinessList = require('./routes/BusinessInfo');
 const PORT = process.env.PORT || 5000;
 const { init } = require('./models/init'); 
 
