@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from "../images/logo.png"
 import "../styles/index.css"
 
 const Login = (props) => {
@@ -7,7 +8,8 @@ const Login = (props) => {
             <div className="container">
                 <div className="card">
                     <center>
-                        <img src="../images/logo.png" alt='Logo'/>
+                        {/* <img src="../images/logo.png" alt='Logo'/> */}
+                        <img src={Logo} alt="Logo" />
                     </center>
                     <h2>Pitcher's Showdown<br />{props.admin === "true" ? "Admin " : ""} Login</h2>
                     <form>

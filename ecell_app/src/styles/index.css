@@ -1,3 +1,5 @@
+@import url(global.css);
+
 /* Login Page */
 
 body {
@@ -85,4 +87,72 @@ table thead th {
 
 table tbody  tr td {
     padding: 1rem;
+}
+
+/* About Page */
+
+.business-details-1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 100px;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.business-details-1 .left {
+  width: 750px;
+  height: 100%;
+}
+
+.business-details-1 .left img {
+  width: 100%;
+  height: 100%;
+}
+
+.business-details-1 .right h1 {
+  font-size: 50px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.business-details-1 .right h1 span {
+  font-size: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20px;
+  background-color: #070738;
+  color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.business-details-1 .right p {
+  font-size: 20px;
+}
+
+.business-details-1 .right .button-grp {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+}
+
+.business-details-1 .right .button-grp a,
+.business-details-1 .right .button-grp button {
+  color: #FFFFFF;
+  background-color: #070738;
+  padding: 1rem 3rem;
+  border-radius: 20px;
+  border: 1px solid #070738;
+  transition: .5s ease-in-out;
+  text-align: center;
+  font-size: 25px;
+  /* text-decoration: none!important; */
+}
+
+.business-details-1 .right .button-grp a:hover
+.business-details-1 .right .button-grp button:hover {
+  color: #070738;
+  background-color: #FFFFFF;
 }
