@@ -2,16 +2,21 @@ import React from 'react'
 import Logo from "../images/logo.png"
 import "../styles/index.css"
 
+import { useNavigate } from 'react-router-dom'
+
 import makeRequest from '../utils'
 
 const Login = (props) => {
+    const nav = useNavigate()
+
     const handleSubmit = (ev) => {
         ev.preventDefault()
         const data = {}
         ev.currentTarget.querySelectorAll('input').forEach(inp => data[inp.name] = inp.value)
         makeRequest('POST', '/api/auth/login', data).then(res => {
             localStorage.setItem('token', res.jwtToken)
-            props.setAmt(res.balance)
+            localStorage.setItem('balance', res.balance)
+            nav('/list_of_business')
         })
     }
 

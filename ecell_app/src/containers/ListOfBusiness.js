@@ -19,7 +19,7 @@ const Listofbusiness = (props) => {
       <div className="content">
         <div className="Header">
           <div className="head">List of Businesses</div>
-          <div className="Amount">Amount: {props.amt}</div>
+          <div className="Amount">Amount: {localStorage.getItem('balance')}</div>
         </div>
 
         <div className="buttons">

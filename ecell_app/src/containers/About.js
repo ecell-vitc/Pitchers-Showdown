@@ -30,7 +30,7 @@ const About = (props) => {
         <img src={info.link} alt="" />
       </div>
       <div className='right'>
-        <h1>{ info.team_name } <span>Rem. Amt.: 100 L</span></h1>
+        <h1>{ info.team_name } <span>Rem. Amt.: {localStorage.getItem('balance')} L</span></h1>
         <p>
           { info.team_content }
         </p>
