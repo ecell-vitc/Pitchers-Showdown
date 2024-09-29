@@ -6,11 +6,15 @@ import Home from './containers/Home'
 import About from './containers/About'
 import Login from './containers/Login'
 import Leaderboard from './containers/Leaderboard'
+import AdminPage from './components/AdminPage'
+import BusinessDashboard from './components/BusinessDashboard'
 
 const App = () => {
   return (
     <Router>
-      {/* <Navbar /> */}
+      <Navbar />
+      <AdminPage />
+      <BusinessDashboard />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/business_about" element={<About />} />
@@ -18,7 +22,7 @@ const App = () => {
         <Route path="/admin/login" element={<Login admin="true" />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 };
