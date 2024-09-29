@@ -4,6 +4,8 @@ import "../styles/index.css"
 
 import makeRequest from '../utils'
 
+import Navbar from '../components/Navbar'
+
 const About = (props) => {
   const [investAmt, setInvestAmt] = useState(0)
   const [info, setInfo] = useState({
@@ -20,8 +22,8 @@ const About = (props) => {
   }, [])
 
   const handleSubmit = () => {
-    console.log(teamId)
-    console.log(investAmt)
+    makeRequest('POST', '/api/business/' + teamId, { amt: investAmt })
+    .then(res => { alert('Investment successfull!') })
   }
 
   return (

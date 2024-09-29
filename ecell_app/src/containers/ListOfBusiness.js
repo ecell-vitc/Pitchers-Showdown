@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Logo from "../images/logo.png";
 import makeRequest from "../utils";
 
+import Navbar from "../components/Navbar";
 
 const Listofbusiness = (props) => {
   const [teams, setTeams] = useState([])
@@ -13,6 +14,7 @@ const Listofbusiness = (props) => {
 
   return (
     <>
+      <Navbar />
       <div className="top-bar">
         <img className="logo" src={Logo} />
       </div>

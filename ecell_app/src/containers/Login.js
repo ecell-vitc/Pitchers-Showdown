@@ -5,6 +5,7 @@ import "../styles/index.css"
 import { useNavigate } from 'react-router-dom'
 
 import makeRequest from '../utils'
+import Navbar from '../components/Navbar'
 
 const Login = (props) => {
     const nav = useNavigate()
@@ -22,6 +23,7 @@ const Login = (props) => {
 
     return (
         <>
+            <Navbar />
             <div className="container">
                 <div className="card">
                     <center>
