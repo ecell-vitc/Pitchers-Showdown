@@ -1,4 +1,4 @@
-const { User } = require('../models/user'); 
+const { User, Token } = require('../models/user'); 
 const jwt = require('jsonwebtoken');
 
 // Login controller function with JWT
@@ -12,9 +12,11 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ message: 'Invalid username or password' });
         }
 
-        const token = jwt.sign({ id: user._id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        await Token.findOneAndDelete({ user: user._id })
+        const token = new Token({ user: user._id }); await token.save()
+        const jwtToken = jwt.sign({ token: token.token }, process.env.JWT_SECRET);
 
-        res.status(200).json({ message: 'Login successful', token });
+        res.status(200).json({ message: 'Login successful', jwtToken });
     } catch (error) {
         console.error('Login error:', error);
         res.status(500).json({ message: 'Internal server error' });
