@@ -6,14 +6,14 @@ const teamsData = [
       team_name: 'Team Alpha',
       team_content: 'This is Team Alpha, a great startup.',
       link: 'https://teamalpha.com',
-      id: 2,
+      id: 0,
     },
     {
       img: 'https://example.com/team2.jpg',
       team_name: 'Team Beta',
       team_content: 'Team Beta specializes in AI solutions.',
       link: 'https://teambeta.com',
-      id: 2,
+      id: 1,
     }
 ];
   
