@@ -5,8 +5,7 @@ const Home= () => {
   return (
     <div className="container">
       <div className="logos">
-        <img style={{ width: '100px', height: '9vh' }} src="./logo.png" alt="Logo" />
-        <img className="logo-text" style={{ width: '331px', height: '10vh' }} src="./ECELL LOGO TEXT.png" alt="Ecell Logo Text" />
+        <div>Ecell Logo</div>
       </div>
       <div className="content">
         <h1>

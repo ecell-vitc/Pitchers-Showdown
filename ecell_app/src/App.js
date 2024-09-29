@@ -12,7 +12,6 @@ import BusinessDashboard from './components/BusinessDashboard'
 const App = () => {
   return (
     <Router>
-      <Navbar />
       
       <Routes>
         <Route path="/" element={<Home />} />
