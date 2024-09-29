@@ -1,19 +1,32 @@
 import React from "react";
+import './Home.css'; // Assuming you have a CSS file for styles
+import { useNavigate } from 'react-router-dom'; // Updated import for navigation
 
+const Home = () => {
+  const navigate = useNavigate(); // useNavigate hook to navigate programmatically
 
-const Home= () => {
+  const handleLoginClick = () => {
+    navigate('/login'); // Navigate to the login page on click
+  };
+
   return (
     <div className="container">
       <div className="logos">
-        <div>Ecell Logo</div>
+        <div className="logo">Ecell Pitcher's Showdown</div>
       </div>
       <div className="content">
-        <h1>
-          Unleash your vision and conquer the world of business. <br /> Pitch, invest, and thrive at the <br /> ultimate
+        <h1 className="headline">
+          Unleash your vision and conquer the world of business. <br />
+          Pitch, invest, and thrive at the <br />
+          ultimate
         </h1>
-        <img className="gif" src="./standard.gif" alt="Pitch Showdown" /> <br /> <br />
-        <a href="#" className="btn">LOGIN</a>
-        <p>READY TO WIN BIG?</p>
+        <img className="gif" src="./standard.gif" alt="Pitch Showdown" />
+        <br />
+        <br />
+        <button className="btn" onClick={handleLoginClick}>
+          LOGIN
+        </button>
+        <p className="call-to-action">READY TO WIN BIG?</p>
       </div>
     </div>
   );

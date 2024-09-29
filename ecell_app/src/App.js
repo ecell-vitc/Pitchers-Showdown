@@ -23,7 +23,6 @@ const App = () => {
         <Route path="/BusinessDashboard" element={<BusinessDashboard />} />
 
       </Routes>
-      <Footer />
     </Router>
   );
 };
