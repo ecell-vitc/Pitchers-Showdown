@@ -16,7 +16,7 @@ const loginUser = async (req, res) => {
         const token = new Token({ user: user._id }); await token.save()
         const jwtToken = jwt.sign({ token: token.token }, process.env.JWT_SECRET);
 
-        res.status(200).json({ message: 'Login successful', jwtToken });
+        res.status(200).json({ message: 'Login successful', jwtToken, balance: user.Rbalance });
     } catch (error) {
         console.error('Login error:', error);
         res.status(500).json({ message: 'Internal server error' });
