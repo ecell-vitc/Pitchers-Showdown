@@ -21,7 +21,6 @@ const App = () => {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/AdminPage" element={<AdminPage />} />
         <Route path="/BusinessDashboard" element={<BusinessDashboard />} />
-
       </Routes>
     </Router>
   );
