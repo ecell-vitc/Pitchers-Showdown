@@ -1,35 +1,46 @@
-const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
-const crypto = require('crypto')
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 
-const User = mongoose.model('User', {
+const UserSchema = new mongoose.Schema({
     username: {
         type: String,
-        unique: true
+        unique: true,
+        required: true,
     },
     password: {
         type: String,
-        set: pass => bcrypt.hashSync(pass, 5)
+        set: pass => bcrypt.hashSync(pass, 5),
+        required: true,
     },
-    name: String, credits: {
+    name: {
+        type: String,
+        required: true,
+    },
+    Rbalance: {   // remaining balance
         type: Number,
-        default: 100000000
+        default: 100000000,
     },
-})
-User.check_password = (pass, enc) => bcrypt.compareSync(pass, enc)
+});
 
+UserSchema.statics.checkPassword = function (inputPassword, hashedPassword) {
+    return bcrypt.compareSync(inputPassword, hashedPassword);
+};
 
+const User = mongoose.model('User', UserSchema);
 
-const Token = mongoose.model('Token', {
+const TokenSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
     },
     token: {
         type: String,
         default: crypto.randomBytes(128).toString('hex'),
-        unique: true
+        unique: true,
     },
-})
+});
 
-module.exports = { User, Token }
+const Token = mongoose.model('Token', TokenSchema);
+
+module.exports = { User, Token };

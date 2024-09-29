@@ -1,4 +1,19 @@
-const mongoose = require('mongoose')
-async function init() { await mongoose.connect('mongodb://127.0.0.1:27017/pitchers_showdown') }
+// config/mongo.js
+const mongoose = require('mongoose');
+require('dotenv').config(); 
 
-module.exports = { default: init }
+async function init() {
+    try {
+        const dbUrl = process.env.DATABASE_URL;
+        
+        await mongoose.connect(dbUrl, {
+        });
+        
+        console.log('Connected to MongoDB');
+    } catch (err) {
+        console.error('Error connecting to MongoDB', err);
+        process.exit(1); 
+    }
+}
+
+module.exports = { init };
