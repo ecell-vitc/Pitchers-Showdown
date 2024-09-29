@@ -11,6 +11,7 @@ const Login = (props) => {
         ev.currentTarget.querySelectorAll('input').forEach(inp => data[inp.name] = inp.value)
         makeRequest('POST', '/api/auth/login', data).then(res => {
             localStorage.setItem('token', res.jwtToken)
+            props.setAmt(res.balance)
         })
     }
 
