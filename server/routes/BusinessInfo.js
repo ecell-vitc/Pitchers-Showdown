@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { BusinessList } = require('../controllers/BusinessList')
+const { BusinessList, BusinessInfo } = require('../controllers/BusinessList')
 
-router.get('/businessList', BusinessList);
+router.get('/', BusinessList);
+router.get('/:id/', BusinessInfo)
 
 module.exports = router;
