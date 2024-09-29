@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import "../styles/index.css"
 
 const About = (props) => {
   const [investAmt, setInvestAmt] = useState(0)
 
+  const { teamId } = useParams("teamId")
+
   const handleSubmit = () => {
+    console.log(teamId)
     console.log(investAmt)
   }
 
@@ -21,7 +24,7 @@ const About = (props) => {
         </p>
         <div className='button-grp'>
           { props.invest === "true" ? <input type='number' placeholder="Amount to Invest" name="invest" onChange={(event) => {setInvestAmt(event.target.value)}} /> : <a>Link</a> }
-          { props.invest === "true" ? <button type="submit" onClick={handleSubmit}>Invest</button> : <Link to="/business_about/invest">Invest</Link> }
+          { props.invest === "true" ? <button type="submit" onClick={handleSubmit}>Invest</button> : <Link to={"/business_about/"+teamId+"/invest"}>Invest</Link> }
         </div>
       </div>
     </div>

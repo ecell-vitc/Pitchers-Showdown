@@ -156,3 +156,72 @@ table tbody  tr td {
   color: #070738;
   background-color: #FFFFFF;
 }
+
+/* List of Business */
+
+.top-bar{
+  width: 100%; 
+  height: 12vh; 
+  background: #07072E; 
+  margin: 0px;
+}
+body{
+    margin: 0px;
+}
+.logo{
+    height:10vh;
+}
+.buttons{
+    text-align: center;
+}
+a{
+    display: block;
+    padding: 30px;
+    text-decoration: none;
+    color:black;
+    border: #000000;
+ }
+a:hover {
+    text-decoration: none;
+    color: #000000;
+    border-radius: 40px;
+    background-color: lavender ;
+}
+.Teams{
+    text-align: center;
+    background-color: white;
+    border-radius: 40px;
+    width: 50vw;
+    }
+button{
+    margin: 5px;
+    font-family: "Rajdhani","sans-serif";
+    font-weight: 700;
+}
+.Amount{
+    align-self: flex-end;
+    padding: 15px;
+    text-align: center;
+    border-radius: 40px;
+    background-color: #07072E ;
+    color:white;
+ }
+.Header{
+    display: inline-flex;
+    width:100%;
+    margin-bottom: 30px;
+    align-items:center;
+    padding:20px;
+    
+}
+.Header div{
+    font-family: "Rajdhani", "sans-serif";
+    font-weight: bold;
+}
+.head{
+    margin-left:50px;
+    font-size: xxx-large;
+    letter-spacing: 0.1rem;
+    float: left;
+    width:70%
+}
