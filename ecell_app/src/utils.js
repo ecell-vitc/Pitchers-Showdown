@@ -6,5 +6,5 @@ export default async function makeRequest(method, url, data) {
             'content-type': (method == 'GET' ? '' : 'application/json')
         },
         body: (method == 'GET' ? null : JSON.stringify(data)),
-    }).then(res => res.json()).catch(err => { alert('An unexpected error occurred!'); return {} })
+    }).then(res => res.json())
 }

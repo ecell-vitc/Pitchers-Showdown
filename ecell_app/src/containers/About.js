@@ -27,21 +27,24 @@ const About = (props) => {
   }
 
   return (
-    <div className='business-details-1'>
-      <div className="left">
-        <img src={info.link} alt="" />
-      </div>
-      <div className='right'>
-        <h1>{ info.team_name } <span>Rem. Amt.: {localStorage.getItem('balance')} L</span></h1>
-        <p>
-          { info.team_content }
-        </p>
-        <div className='button-grp'>
-          { props.invest === "true" ? <input type='number' placeholder="Amount to Invest" name="invest" onChange={(event) => {setInvestAmt(event.target.value)}} /> : <a href={info.link} target="_blank">Link</a> }
-          { props.invest === "true" ? <button type="submit" onClick={handleSubmit}>Invest</button> : <Link to={"/business_about/"+teamId+"/invest"}>Invest</Link> }
+    <>
+      <Navbar />
+      <div className='business-details-1'>
+        <div className="left">
+          <img src={info.link} alt="" />
+        </div>
+        <div className='right'>
+          <h1>{ info.team_name } <span>Rem. Amt.: {localStorage.getItem('balance')} L</span></h1>
+          <p>
+            { info.team_content }
+          </p>
+          <div className='button-grp'>
+            { props.invest === "true" ? <input type='number' placeholder="Amount to Invest" name="invest" onChange={(event) => {setInvestAmt(event.target.value)}} /> : <a href={info.link} target="_blank">Link</a> }
+            { props.invest === "true" ? <button type="submit" onClick={handleSubmit}>Invest</button> : <Link to={"/business_about/"+teamId+"/invest"}>Invest</Link> }
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
