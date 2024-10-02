@@ -4,6 +4,8 @@ import Nav from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
+import AllBusiness from './pages/AllBusiness'
+
 export default function App() {
 	return (
 		<>
@@ -11,6 +13,7 @@ export default function App() {
 				<Nav />	
 				<Routes>
 					<Route path="/" element={<Home />} />
+					<Route path="/business/all" element={<AllBusiness />} />
 					<Route path="/login" element={<Login/>} />
 				</Routes>
 			</Router>

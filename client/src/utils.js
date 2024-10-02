@@ -1,6 +1,6 @@
 const SERVER_URL = 'localhost:5000/api/'
 
-export async function makeRequest(method, url, data) {
+export async function makeRequest(method, url, data, success, error) {
     const res = await fetch(SERVER_URL + url, {
         cache: 'no-store',
         method, mode: 'cors', headers: {
@@ -10,5 +10,6 @@ export async function makeRequest(method, url, data) {
         body: (method == 'GET' ? null : JSON.stringify(data)),
     })
 
-    return res.json()
+    if (!res.ok) return error(res.status)
+    return success(res.json())
 }
