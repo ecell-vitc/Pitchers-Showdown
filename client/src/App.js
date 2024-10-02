@@ -16,7 +16,7 @@ export default function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/business/all" element={<AllBusiness />} />
 					<Route path="/login" element={<Login/>} />
-					<Route path="/Businessui" element={<BusinessUI/>} />
+					<Route path="/business/:id/" element={<BusinessUI/>} />
 				</Routes>
 			</Router>
 		</>
