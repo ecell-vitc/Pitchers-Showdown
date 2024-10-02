@@ -1,4 +1,4 @@
-const SERVER_URL = 'http://localhost:5000/api/'
+const SERVER_URL = 'https://pitcher-s-showdown.onrender.com'
 
 export async function makeRequest(method, url, data, success, error) {
     const res = await fetch(SERVER_URL + url, {
