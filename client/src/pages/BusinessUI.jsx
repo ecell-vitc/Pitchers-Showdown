@@ -11,17 +11,12 @@ export default function BusinessUI() {
 
         {/* Business Info Section */}
         <div className="flex items-center mb-6">
-          <img
-            src="example.png"
-            alt="Business logo"
-            className="w-16 h-16 rounded-full mr-4 border"
-          />
           <div>
             <div className="text-lg font-medium text-gray-700">
               Business Details
             </div>
-            <div className="text-sm text-gray-500">
-              Remaining Amount: $10,000
+            <div className="text-sm text-green-500">
+              Remaining Amount: 1000 <span>Lakhs</span>
             </div>
           </div>
         </div>
