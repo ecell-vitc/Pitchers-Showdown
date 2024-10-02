@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
+
+import { makeRequest } from '../utils'
 
 export default function TeamProfileDashBoard() {
-  const investments = [
-    { company: "Company A", amount: "500" },
-    { company: "Company B", amount: "800" },
-    { company: "Company C", amount: "300" },
-  ];
+  const [name, setName] = useState('')
+  const [investments, setInvestments] = useState([])
+  const nav = useNavigate()
+
+  useEffect(() => {
+    makeRequest('GET', 'profile/', {},
+      (data) => {
+        setName(data.name)
+        setInvestments(data.investments)
+      },
+      (err) => { alert('You are not logged in!'); nav('/login') }
+    )
+  }, [])
+
 
   return (
     <div className="max-w-4xl mx-auto bg-white p-8 shadow-lg rounded-lg">
       {/* Team Name */}
-      <div className="text-3xl font-bold text-gray-800 mb-4">Team Alpha</div>
+      <div className="text-3xl font-bold text-gray-800 mb-4">{name}</div>
 
       {/* Remaining Amount */}
       <div className="text-xl text-gray-700 mb-8">
-        Remaining Investment Amount: <span className="font-semibold">1000</span>{" "}
+        Remaining Investment Amount: <span className="font-semibold">{localStorage.getItem('balance') ?? 0}</span>{" "}
         <span>Lakhs</span>
       </div>
 
@@ -32,10 +44,10 @@ export default function TeamProfileDashBoard() {
               className="flex justify-between bg-white p-4 rounded-lg shadow-md"
             >
               <div className="text-lg font-medium text-gray-600">
-                {investment.company}
+                {investment.team}
               </div>
               <div className="text-lg font-bold text-gray-900">
-                {investment.amount}
+                {investment.amt}
               </div>
             </div>
           ))}
