@@ -23,7 +23,6 @@ const BusinessInfo = async (req, res) => {
 
     if (pitcher) {
       res.json({
-        id: pitcher._id,
         team_name: pitcher.name,
         team_content: '',
         link: pitcher.ppt,
@@ -42,21 +41,23 @@ const BusinessInfo = async (req, res) => {
 const makeInvestment = async (req, res) => {
   try {
     const teamId = req.params.id; const token = req.headers['x-access-token']
-    const pitcher = Pitcher.findById(teamId);
+    const pitcher = await Pitcher.findById(teamId);
     const db_token = await Token.findOne({ token: token })
 
     if (!db_token)
       return res.status(403).json({ error: 'Token invalid' })
     const user = await User.findById(db_token.user)
 
-    if (!user || user.Rbalance < req.body['amt'])
+    if (!user || user.Rbalance < req.body['amt'] || req.body['amt'] < 0)
       return res.status(401).json({ error: 'Balance not sufficient' })
 
     if (pitcher) {
       const prevInvest = await Investment.findOne({ user: user._id, pitcher: pitcher._id })
       if (prevInvest)
         return res.status(403).json({ error: 'An investment has already been made' })
+
       await Investment({ user: user._id, pitcher: pitcher._id, amt: req.body['amt'] }).save()
+
       user.Rbalance -= req.body['amt']
       await user.save()
       
