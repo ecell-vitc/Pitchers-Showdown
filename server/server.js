@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const BusinessList = require('./routes/BusinessInfo');
 const { User, Token } = require('./models/user')
-const { Investment, Pitcher } = require('./models/pitcher');
+const { Investment } = require('./models/pitcher');
 
 const connect = require('./models/init'); 
 connect();
@@ -33,7 +33,7 @@ app.get('/api/profile', async (req, res) => {
     for (let i = 0; i < inv_db.length; i++)
         investments.push({
             amt: inv_db[i].amt,
-            team: (await Pitcher.findById(inv_db[i].pitcher)).name
+            team: (await User.findById(inv_db[i].pitcher)).name
         })
 
     return res.json({ name: user.name, investments })

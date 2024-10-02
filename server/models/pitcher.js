@@ -1,9 +1,5 @@
 const mongoose = require('mongoose')
 
-const Pitcher = mongoose.model('Pitcher', {
-    name: String, ppt: String, image: String,
-})
-
 const Investment = mongoose.model('Investment', {
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -11,17 +7,11 @@ const Investment = mongoose.model('Investment', {
     },
     pitcher: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Pitcher'
+        ref: 'User'
     },
     amt: Number
 })
 
-const InvestmentWindow = mongoose.model('InvestWindow', {
-    pitcher: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Pitcher'
-    },
-    enabled: Boolean
-})
 
-module.exports = { Pitcher, Investment, InvestmentWindow }
+
+module.exports = { Investment }

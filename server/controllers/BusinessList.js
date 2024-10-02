@@ -1,12 +1,12 @@
 const { User, Token } = require('../models/user')
-const { Pitcher, Investment, InvestmentWindow } = require('../models/pitcher');
+const { Investment } = require('../models/pitcher');
 const jwt = require('jsonwebtoken');
 
 
 const BusinessList = async (req, res) => {
   try {
     res.json({
-      teams: (await Pitcher.find()).map(pitcher => ({
+      teams: (await User.find()).map(pitcher => ({
         id: pitcher._id,
         team_name: pitcher.name,
       })) })
@@ -19,7 +19,7 @@ const BusinessList = async (req, res) => {
 const BusinessInfo = async (req, res) => {
   try {
     const teamId = req.params.id;
-    const pitcher = await Pitcher.findById(teamId);
+    const pitcher = await User.findById(teamId);
 
     if (pitcher) {
       res.json({
@@ -41,15 +41,15 @@ const BusinessInfo = async (req, res) => {
 const makeInvestment = async (req, res) => {
   try {
     const teamId = req.params.id; const token = req.headers['x-access-token']
-    const pitcher = await Pitcher.findById(teamId);
+    const pitcher = await User.findById(teamId);
     const db_token = await Token.findOne({ token: token })
 
     if (!db_token)
       return res.status(403).json({ error: 'Token invalid' })
     const user = await User.findById(db_token.user)
 
-    if (!user || user.Rbalance < req.body['amt'] || req.body['amt'] < 0)
-      return res.status(401).json({ error: 'Balance not sufficient' })
+    if (!user || user.Rbalance < req.body['amt'] || req.body['amt'] < 0 || user._id.toString() == pitcher._id.toString())
+      return res.status(401).json({ error: 'Bad Request' })
 
     if (pitcher) {
       const prevInvest = await Investment.findOne({ user: user._id, pitcher: pitcher._id })
