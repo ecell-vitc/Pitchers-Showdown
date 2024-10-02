@@ -1,4 +1,4 @@
-const SERVER_URL = 'localhost:5000/api/'
+const SERVER_URL = 'http://localhost:5000/api/'
 
 export async function makeRequest(method, url, data, success, error) {
     const res = await fetch(SERVER_URL + url, {
@@ -11,5 +11,5 @@ export async function makeRequest(method, url, data, success, error) {
     })
 
     if (!res.ok) return error(res.status)
-    return success(res.json())
+    return success(await res.json())
 }
