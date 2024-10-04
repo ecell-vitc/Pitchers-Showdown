@@ -1,6 +1,8 @@
 const { User, Token } = require('../models/user'); 
 const jwt = require('jsonwebtoken');
 
+const crypto = require('crypto')
+
 // Login controller function with JWT
 const loginUser = async (req, res) => {
     const { username, password } = req.body;
@@ -13,7 +15,7 @@ const loginUser = async (req, res) => {
         }
 
         await Token.findOneAndDelete({ user: user._id })
-        const token = new Token({ user: user._id }); await token.save()
+        const token = new Token({ user: user._id, token: crypto.randomBytes(128).toString('hex') }); await token.save()
         // const jwtToken = jwt.sign({ token: token.token }, process.env.JWT_SECRET);
 
         res.status(200).json({ message: 'Login successful', jwtToken: token.token, balance: user.Rbalance });
