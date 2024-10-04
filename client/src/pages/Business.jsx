@@ -36,7 +36,7 @@ export default function Business() {
 				<div className="flex items-center mb-6">
 					<div>
 						<div className="text-base font-medium text-gray-700">
-							<p>{info.team_content} 'Lorem, ipsum dolor.'</p>
+							<p>{info.team_content}</p>
 							<p className="mt-1 underline"><a href={info.link} target="_blank" rel="noopener noreferrer">Presentation</a></p>
 
 							<img src={info.img} alt="" className="my-3 w-full object-cover" />
