@@ -41,16 +41,10 @@ const makeInvestment = async (req, res) => {
   try {
     const teamId = req.params.id;
     const userSession = req.session && req.session.user;
-    if (!userSession || !userSession._id) {
-      return res.status(403).json({ error: 'User not authenticated' });
-    }
-
     const pitcher = await User.findById(teamId);
     if (!pitcher) {
       return res.status(404).json({ error: 'Team/User not found' });
     }
-
-
     if (userSession._id.toString() === pitcher._id.toString()) {
       return res.status(401).json({ error: 'Cannot invest in your own team' });
     }
