@@ -1,0 +1,76 @@
+body {
+    background-image: url(".\assets\background_login.png");
+    background-size: cover;
+}
+
+.logincard {
+    border-radius: 20px;
+    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(32px);
+    background-color: rgba(10, 6, 6, 0.87);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 40px;
+    min-width: 300px;
+}
+
+.text {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-bottom: 28px;
+    text-align: center;
+    font-size: x-large;
+    margin-top: 16px;
+}
+
+.text-label {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: semi-bold;
+    text-align: left;
+    font-size: medium;
+    margin-top: 16px;
+}
+
+.textbox {
+    background-color: rgba(192, 191, 191, 0.267);
+    border: none;
+    border-radius: 60px;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    font-size: small;
+    padding: 8px;    
+    margin-top: 6px;
+    margin-bottom: 8px;
+    width: 94%;
+    transition: 0.2s ease;
+}
+
+.textbox:hover {
+    background-color: rgba(61, 60, 60, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0 0px 20px rgba(231, 47, 47, 0.692);
+}
+
+.loginbtn {
+    background-color: rgb(20, 20, 20);
+    border: none;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    font-size: medium;
+    padding: 10px;    
+    transition: 0.3s ease;
+    margin: 20px;
+    min-width: 100px;
+    color: whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.loginbtn:hover {
+    background-color: rgba(168, 8, 8, 0.514);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
