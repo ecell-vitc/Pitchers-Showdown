@@ -16,9 +16,9 @@ const loginUser = async (req, res) => {
 
         await Token.findOneAndDelete({ user: user._id })
         const token = new Token({ user: user._id, token: crypto.randomBytes(128).toString('hex') }); await token.save()
-        // const jwtToken = jwt.sign({ token: token.token }, process.env.JWT_SECRET);
+        const jwtToken = jwt.sign({ token: token.token }, process.env.JWT_SECRET);
 
-        res.status(200).json({ message: 'Login successful', jwtToken: token.token, balance: user.Rbalance });
+        res.status(200).json({ message: 'Login successful', jwtToken: jwtToken, name: user.name, balance: user.Rbalance,  });
     } catch (error) {
         console.error('Login error:', error);
         res.status(500).json({ message: 'Internal server error' });
