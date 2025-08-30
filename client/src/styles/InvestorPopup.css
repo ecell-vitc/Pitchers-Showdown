@@ -1,0 +1,120 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(44, 62, 80, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.popup-content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    width: 370px;
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: popupIn 0.23s ease;
+}
+
+@keyframes popupIn {
+    from {
+    transform: translateY(-40px) scale(0.98);
+    opacity: 0;
+    }
+    to {
+    transform: none;
+    opacity: 1;
+    } 
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #22223b;
+}
+
+.popup-content a {
+    color: #3559e0;
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
+.popup-content p {
+    margin: 0.2em 0 0.7em 0;
+    font-size: 1.02rem;
+}
+
+.investment-form {
+    margin: 15px 0 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    background: #f5f6fa;
+    border-radius: 6px;
+    padding: 0.8em 1em;
+}
+
+.investment-form input[type="number"] {
+    flex: 1;
+    padding: 0.6em 0.7em;
+    font-size: 1.02rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    outline: none;
+    background: #fff;
+    transition: border 0.2s;
+}
+
+.investment-form input[type="number"]:focus {
+    border: 1.5px solid #3559e0;
+}
+
+.investment-form button {
+    padding: 0.55em 1.4em;
+    background: #3559e0;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1.01rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.18s, opacity 0.15s;
+}
+
+.investment-form button:disabled {
+    opacity: 0.7;
+    background: #7d91c3;
+    cursor: not-allowed;
+}
+
+.close-btn {
+    color: #555;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    margin-top: 0.7em;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #f44336;
+    margin-top: 0.3em;
+    font-size: 0.97rem;
+}
+
+.success-message {
+    color: #27ae60;
+    font-size: 1.01rem;
+    margin-top: 0.3em;
+}
