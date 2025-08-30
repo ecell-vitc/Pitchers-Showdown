@@ -3,6 +3,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRouter';
 import Homepage from './pages/Homepage'
+import BusinessPage from './pages/Business/BusinessPage';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Teams from './components/Teams';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/teams" element={<Teams />} /> 
+        <Route path="business/:teamId" element={<BusinessPage />} />
       </Routes>    
     </BrowserRouter>
   )  
