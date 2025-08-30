@@ -5,7 +5,7 @@ import PrivateRoute from './components/PrivateRouter';
 import Homepage from './pages/Homepage'
 import Login from './pages/Login';
 import Profile from './pages/Profile';
-
+import Teams from './components/Teams';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
         <Route path='/' element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+        <Route path="/teams" element={<Teams />} /> 
       </Routes>    
     </BrowserRouter>
   )  
