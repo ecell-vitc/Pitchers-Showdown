@@ -1,7 +1,7 @@
 // server/controlBoard.js
 
-const { User } = require('./models/user');
-const { Investment } = require('./models/pitcher'); // change path if model is in different file
+const { User } = require('../models/user');
+const { Investment } = require('../models/pitcher'); // change path if model is in different file
 
 class ControlBoard {
 

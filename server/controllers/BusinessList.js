@@ -25,7 +25,6 @@ const BusinessInfo = async (req, res) => {
         team_name: pitcher.name,
         team_content: '',
         link: pitcher.ppt,
-        img: pitcher.image,
       });
     } else {
       res.status(404).json({ error: 'Team not found' });
@@ -46,17 +45,16 @@ const makeInvestment = async (req, res) => {
       return res.status(404).json({ error: 'Team/User not found' });
     }
     if (userSession._id.toString() === pitcher._id.toString()) {
-      return res.status(401).json({ error: 'Cannot invest in your own team' });
+      return res.status(412).json({ error: 'Cannot invest in your own team' });
     }
 
     const amt = req.body['amt'];
-    if (amt < 0 || userSession.Rbalance < amt) {
-      return res.status(401).json({ error: 'Bad Request' });
-    }
+    if (amt < 0) return res.status(400).json({ error: 'Invalid amount' })
+    if (userSession.Rbalance < amt) return res.status(400).json({ error: 'Insufficient Balance' });
 
     const prevInvest = await Investment.findOne({ user: userSession._id, pitcher: pitcher._id });
     if (prevInvest) {
-      return res.status(403).json({ error: 'An investment has already been made' });
+      return res.status(412).json({ error: 'An investment has already been made' });
     }
 
     await Investment({ user: userSession._id, pitcher: pitcher._id, amt }).save();
@@ -64,7 +62,7 @@ const makeInvestment = async (req, res) => {
     user.Rbalance -= amt;
     await user.save();
 
-    return res.json({});
+    return res.json({ message: 'Investment successful' });
   } catch (error) {
     console.error('Investment error:', error);
     res.status(500).json({ message: 'Internal server error' });

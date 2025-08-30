@@ -1,5 +1,5 @@
-const { User, Token } = require('./models/user')
-const { Investment } = require('./models/pitcher');
+const { User, Token } = require('../models/user')
+const { Investment } = require('../models/pitcher');
 
 
 let profile = async (req, res) => {

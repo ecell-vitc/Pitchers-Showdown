@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         default: 1000,
     },
-    ppt: String, image: String
+    ppt: String
 });
 
 UserSchema.statics.checkPassword = function (inputPassword, hashedPassword) {

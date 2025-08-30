@@ -12,6 +12,7 @@ const connect = require('./models/init');
 connect();
 
 const app = express();
+app.use((req, _, next) => { console.log(req.method, req.path); next() })
 app.use(cors());
 
 app.use(express.json());
