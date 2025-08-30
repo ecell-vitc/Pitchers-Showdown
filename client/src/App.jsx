@@ -1,5 +1,8 @@
+import './App.css'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRouter';
+import Homepage from './pages/Homepage'
 import Profile from './Profile'; //just taken as demo.
 import Login from './Login';
 import BusinessPage from './pages/Business/BusinessPage';
