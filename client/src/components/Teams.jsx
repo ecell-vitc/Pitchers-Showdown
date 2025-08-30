@@ -9,22 +9,37 @@ function Teams() {
 
   // Fetch business teams from API
   useEffect(() => {
-    fetch('http://localhost:5000/api/business')
-      .then(response => {
+    const controller = new AbortController();
+    
+    const fetchTeams = async () => {
+      try {
+        const response = await fetch('https://pitchers-showdown-server.onrender.com/api/business', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+          signal: controller.signal,
+          mode: 'cors'
+        });
+        
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.json();
-      })
-      .then(data => {
+        
+        const data = await response.json();
         console.log('Teams data:', data);
         setAllTeams(data.teams || []);
         setLoading(false);
-      })
-              .catch(error => {
-          console.error('Error fetching teams:', error);
-          setLoading(false);
-        });
+      } catch (error) {
+        console.error('Error fetching teams:', error);
+        if (error.name === 'AbortError') return;
+        setLoading(false);
+      }
+    };
+
+    fetchTeams();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   // Make pagination
