@@ -27,30 +27,6 @@ function Footer() {
         >
           Instagram
         </a>
-        <a
-          href="https://www.facebook.com/envizionvitc/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-item"
-        >
-          Facebook
-        </a>
-        <a
-          href="https://www.youtube.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-item"
-        >
-          YouTube
-        </a>
-      </div>
-      <div className="footer-column footer-col3">
-        <div className="title">GET NOTIFIED</div>
-        <div className="divider" />
-        <div className="description">
-          Be the first to know about<br />
-          the activities of E-Cell
-        </div>
       </div>
     </footer>
   );

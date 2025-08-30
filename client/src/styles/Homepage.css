@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Noot';
-  src: url('/assets/fonts/Noot.ttf') format('truetype');
+  src: url('../assets/fonts/Noot.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }

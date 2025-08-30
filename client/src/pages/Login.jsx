@@ -1,7 +1,7 @@
-import useAuthStore from '../lib/store';
-import './Login.css';
-import background from './assets/background_login.png';
-import React, { useState, useEffect } from 'react';
+import useAuthStore from '../../lib/store';
+import '../styles/Login.css';
+import background from '../assets/background_login.png';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
@@ -39,11 +39,11 @@ export default function Login() {
     }
         
       localStorage.setItem('token', data.jwtToken);
-        login(data.jwtToken, data.balance);
-        console.log(data.jwtToken);
+      login(data.jwtToken, data.balance);
       navigate('/profile');
     } catch (err) {
-      setError('Invalid username or password');
+      console.error(err)
+      setError('An unexpected error occurred!');
     } finally {
       setLoading(false);
     }

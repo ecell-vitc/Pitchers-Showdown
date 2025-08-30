@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import "../styles/Homepage.css";
@@ -10,12 +9,11 @@ function Homepage() {
     <>
       <div className="bg">
       <div className="page-container">
-        <Navbar />
         <Title />
         <FlipTimer />
         <Desc />
-        <Footer />
         </div>
+        <Footer />
       </div>
     </>
   )
