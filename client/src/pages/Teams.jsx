@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import './Teams.css';
+import { useNavigate } from 'react-router-dom';
+import '../styles/Teams.css';
 
 function Teams() {
   const [allTeams, setAllTeams] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const teamsPerPage = 7;
+  const navigate = useNavigate()
 
   // Fetch business teams from API
   useEffect(() => {
@@ -92,8 +94,7 @@ function Teams() {
 
   // Handle team selection
   const handleTeamClick = (team) => {
-    console.log('Selected team:', team);
-    // TODO: Navigate to team details or investment page
+    navigate(team.id)
   };
 
   if (loading) {
@@ -106,19 +107,6 @@ function Teams() {
 
   return (
     <div className="teams-container">
-      {/* Header Navigation */}
-      <header className="teams-header">
-        <div className="header-left">
-          <a href="/" className="back-link">
-            ← Back to Home
-          </a>
-        </div>
-        <div className="header-right">
-          <a href="/leaderboard" className="nav-link">Leaderboard</a>
-          <a href="/teams" className="nav-link active">Teams</a>
-          <a href="/investments" className="nav-link">Investments</a>
-        </div>
-      </header>
 
       {/* Main Content */}
       <div className="teams-content">
@@ -131,6 +119,7 @@ function Teams() {
         <div className="teams-grid">
           {/* Show 7 teams per page in 2-3-2 layout */}
           {currentTeams.map((team, index) => (
+            
             <div
               key={team.id}
               className={`team-panel team-${(index % 7) + 1}`}

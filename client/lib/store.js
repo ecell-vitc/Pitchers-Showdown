@@ -4,23 +4,27 @@ const useAuthStore = create((set) => ({
   auth: {
     is_logged: false,
     user: undefined,
-    balance: 0,
   },
+  balance: 0,
+
+  setBalance: (newBalance) => set(() => ({
+    balance: newBalance  
+  })),
   login: (user, balance) =>
     set(() => ({
       auth: {
         is_logged: true,
         user,
-        balance,
       },
+      balance,
     })),
   logout: () =>
     set(() => ({
       auth: {
         is_logged: false,
         user: undefined,
-        balance: 0,
       },
+      balance: 0,
     })),
 }));
 

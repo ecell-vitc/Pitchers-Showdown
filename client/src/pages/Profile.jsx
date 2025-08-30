@@ -110,7 +110,7 @@ export default function Profile() {
               Your Investments
             </div>
             <div className='subheader'> 
-              Remaining Investment Amount: {useAuthStore.getState().auth.balance.toLocaleString()}
+              Remaining Investment Amount: {useAuthStore.getState().balance.toLocaleString()}
             </div>
           <div className='listWrap'>
             <div className='list'>

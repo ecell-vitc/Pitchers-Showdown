@@ -8,7 +8,7 @@ function Homepage() {
   return(
     <>
       <div className="bg">
-      <div className="page-container">
+      <div className="page-container pt-10">
         <Title />
         <FlipTimer />
         <Desc />
