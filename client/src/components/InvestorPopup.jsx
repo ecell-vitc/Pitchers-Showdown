@@ -11,7 +11,6 @@ export default function InvestorPopup({ teamId, investorId, isOpen, onClose }) {
 
     useEffect(() => {
     if (!isOpen) return;
-
     async function fetchData() {
         try {
         const teamData = await fetchTeam(teamId);
@@ -54,50 +53,70 @@ export default function InvestorPopup({ teamId, investorId, isOpen, onClose }) {
         setError("Investment failed. Try again.");
     } finally {
         setLoading(false);
-    }
+    }   
     }
 
     if (!isOpen) return null;
 
     return (
-    <div className="popup-overlay" onClick={onClose}>
-        <div className="popup-content" onClick={e => e.stopPropagation()}>
+    <div className="investment-popup-bg" onClick={onClose}>
+        <div
+        className="investment-popup-bubble"
+        onClick={e => e.stopPropagation()}
+        >
         <h2>{team ? team.name : "Loading..."}</h2>
-        {team && (
-            <>
-            <a href={team.presentation_link} target="_blank" rel="noreferrer">
-                Presentation
-            </a>
-            <p style={{ color: "green" }}>
-                Remaining Amount: {team.remaining_amount} Lakhs
-            </p>
-            </>
-        )}
-        {investor && (
-            <p style={{ color: "blue" }}>
-            Your Purse: {investor.purse} Lakhs
-            </p>
-        )}
-        <div className="investment-form">
+        <div className="description">
+            {team
+            ? team.description || (
+                <>
+                    team description team description team description
+                    <br />
+                    team description team descriptionteam description
+                </>
+                )
+            : ""}
+        </div>
+        <form
+            className="investment-popup-form"
+            onSubmit={e => {
+            e.preventDefault();
+            handleInvest();
+            }}
+        >
             <input
             type="number"
             min="1"
-            max={team ? Math.min(team.remaining_amount, investor?.purse) : undefined}
+            max={team && investor ? Math.min(team.remaining_amount, investor.purse) : undefined}
             placeholder="Enter Amount"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={e => setAmount(e.target.value)}
             disabled={loading}
+            autoFocus
             />
             <button
+            type="submit"
             disabled={!isValidAmount() || loading}
-            onClick={handleInvest}
             >
             {loading ? "Investing..." : "Invest"}
             </button>
-        </div>
-        {error && <p className="error-message">{error}</p>}
-        <button className="close-btn" onClick={onClose} disabled={loading}>
-            Close
+        </form>
+        {team && (
+            <div className="remaining-amount-label">
+            Remaining Amount: {team.remaining_amount}/-
+            </div>
+        )}
+        {error && (
+            <div className="error-message" style={{ marginTop: 8 }}>
+            {error}
+            </div>
+        )}
+        <button
+            type="button"
+            className="investment-popup-close-btn"
+            onClick={onClose}
+            disabled={loading}
+        >
+            &larr; Close
         </button>
         </div>
     </div>
