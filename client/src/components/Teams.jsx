@@ -10,16 +10,21 @@ function Teams() {
   // Fetch business teams from API
   useEffect(() => {
     fetch('http://localhost:5000/api/business')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
         console.log('Teams data:', data);
         setAllTeams(data.teams || []);
         setLoading(false);
       })
-      .catch(error => {
-        console.error('Error fetching teams:', error);
-        setLoading(false);
-      });
+              .catch(error => {
+          console.error('Error fetching teams:', error);
+          setLoading(false);
+        });
   }, []);
 
   // Make pagination
@@ -37,16 +42,16 @@ function Teams() {
     return pages;
   };
 
-  // Get business team color based on index
+  // Get business team color based on index 
   const getTeamColor = (index) => {
     const colors = [
-      '#FFD700', // Orange
-      '#FF4444', // Red
-      '#44FF44', // Green
-      '#FF44FF', // Pink
-      '#4444FF', // Blue
-      '#44FFFF', // Light Blue
-      '#FFFF44', // Lime
+      '#FF8C00', // Orange (Team 1)
+      '#FF0000', // Red (Team 2)
+      '#00FF00', // Green (Team 3)
+      '#FF00FF', // Pink (Team 4)
+      '#0000FF', // Blue (Team 5)
+      '#87CEEB', // Light Blue (Team 6)
+      '#7CFC00', // Lime Green (Team 7)
     ];
     return colors[index % colors.length];
   };
@@ -109,10 +114,11 @@ function Teams() {
 
         {/* Teams Grid */}
         <div className="teams-grid">
+          {/* Show 7 teams per page in 2-3-2 layout */}
           {currentTeams.map((team, index) => (
             <div
               key={team.id}
-              className="team-panel"
+              className={`team-panel team-${(index % 7) + 1}`}
               style={{ backgroundColor: getTeamColor(index) }}
               onClick={() => handleTeamClick(team)}
             >
