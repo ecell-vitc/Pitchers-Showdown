@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'Noot';
+  src: url('./assets/fonts/Noot.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logincard {
+    border-radius: 20px;
+    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(32px);
+    background-color: rgba(10, 6, 6, 0.87);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 40px;
+    width: auto;
+    min-width: 360px;
+}
+
+form {
+    display: grid;
+}
+
+.loginheader {
+    font-family: 'Noot', serif;
+    color: whitesmoke;
+    font-size: xxx-large;
+    margin-bottom: 0px;
+}
+
+.loginsubheader {
+    font-family: 'Noot', serif;
+    color: whitesmoke;
+    font-size: large;
+    margin-bottom: 4px;
+}
+
+.textboxlabel {
+    font-family: 'Noot', serif;
+    color: whitesmoke;
+    font-size: small;
+    text-align: left;
+    margin-left: 4px;
+}
+
+.textbox {
+    background-color: rgba(192, 191, 191, 0.267);
+    border: none;
+    border-radius: 60px;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    font-size: small;
+    padding: 8px;    
+    margin-top: 6px;
+    margin-bottom: 8px;
+    width: 94%;
+    transition: 0.2s ease;
+}
+
+.textbox:hover {
+    background-color: rgba(61, 60, 60, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0 0px 20px rgba(231, 47, 47, 0.692);
+}
+
+
+.loginbtntext {
+    font-family: 'Noot', serif;
+    font-size: medium;
+    color: whitesmoke;
+}
+
+.loginbtn {
+    background-color: rgb(20, 20, 20);
+    border: none;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(80px);
+    backdrop-filter: blur(10px);
+    padding-bottom: 4px;    
+    transition: 0.1s ease;
+    margin: 20px;
+    max-width: 100px;
+    color: whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.loginbtn:hover {
+    background-color: rgba(168, 8, 8, 0.514);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
