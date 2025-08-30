@@ -1,0 +1,285 @@
+@import "tailwindcss";
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+@font-face {
+  font-family: 'Noot';
+  src: url('../assets/fonts/Noot.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@theme {
+  --font-poppins: 'Poppins', sans-serif;
+  --font-Noot: 'Noot', serif;
+  --animate-paper-flip: paperFlipDown 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --animate-gradient-shift: gradientShift 3s ease infinite;
+}
+
+.bg {
+  @apply bg-[url('/assets/Background.jpg')] bg-center bg-fixed bg-repeat w-full;
+}
+
+.page-container {
+  @apply flex flex-col justify-start items-center gap-4 w-full px-4;
+}
+
+.navbar {
+  @apply w-full flex justify-end items-center gap-[2vw]
+   text-[clamp(14px,2vw,24px)]
+   text-white z-40 pt-[1vh] pr-[2vw] pb-[13vh] font-poppins
+   ;
+}
+
+.navbar-link {
+  @apply text-white hover:text-gray-400 hover:underline cursor-pointer transition-colors duration-300;
+}
+
+.title-container {
+  @apply flex flex-col items-center text-center z-30 
+  px-[2vw] gap-0;
+}
+
+.pitchers-text,
+.showdown-text {
+  @apply text-white font-bold text-center py-[1vh] px-0 leading-none tracking-normal font-Noot;
+  font-size: clamp(20px, 8vw, 80px);
+}
+
+.pitchers-text {
+  @apply text-red-600;
+}
+
+.showdown-text {
+  @apply text-[#EEFF00] mb-0;
+}
+
+.login-button {
+  @apply flex justify-center items-center mt-[3vh] 
+  border border-white 
+  font-normal text-center text-white 
+  bg-transparent cursor-pointer z-30 select-none 
+  transition-all duration-300 ease-in-out outline-none font-Noot 
+  hover:bg-white/10 hover:border-white/80 active:scale-95 
+  rounded-lg
+  w-[clamp(160px,25vw,200px)] h-[clamp(20px,7vh,60px)] text-[clamp(12px,2vw,18px)];
+}
+
+.countdown-container {
+  @apply flex flex-col sm:flex-row justify-center items-center gap-[5vw] sm:gap-[3vw] z-20 px-[2vw] my-[5vh] w-full;
+}
+
+.countdown-hours,
+.countdown-minutes {
+  @apply flex gap-[2vw];
+}
+
+.countdown-digit-box {
+  @apply relative rounded-[1vw] overflow-hidden hover:scale-[1.02] bg-red-600 perspective-[1000px] transition-transform duration-200 ease-in-out;
+  width: clamp(80px, 12vw, 150px);
+  height: clamp(120px, 18vw, 250px);
+}
+
+
+.digit-top,
+.flip-panel {
+  @apply absolute top-0 left-0 w-full h-1/2 overflow-hidden flex items-end justify-center z-[2] rounded-t-[3vw] bg-red-600 backface-hidden origin-center rotate-x-0;
+}
+
+.digit-bottom {
+  @apply absolute bottom-0 left-0 w-full h-1/2 overflow-hidden flex items-start justify-center z-[1] bg-red-600 rounded-b-[3vw];
+}
+
+.digit-top span,
+.digit-bottom span,
+.flip-panel span {
+  @apply relative text-center leading-none tracking-normal font-normal font-Noot ;
+  font-size: clamp(96px,15vw,96px)
+}
+
+.digit-top span,
+.flip-panel span {
+  @apply translate-y-1/2;
+}
+
+.digit-bottom span {
+  @apply -translate-y-1/2;
+}
+
+.hours-digit {
+  @apply text-white;
+}
+
+.minutes-digit {
+  @apply text-[#EEFF00];
+}
+
+.divider-line {
+  @apply absolute top-1/2 left-0 right-0  bg-black z-10 -translate-y-1/2 ;
+  height: clamp(1px, 0.5vh, 6px);
+}
+
+.countdown-digit-box.flip-animation .flip-panel {
+  @apply animate-paper-flip;
+}
+
+.countdown-digit-box::before {
+  @apply absolute -inset-[0.5vw] rounded-[3.5vw] -z-[1] opacity-80 bg-red-600 bg-[length:400%_400%] animate-gradient-shift;
+}
+
+@keyframes paperFlipDown {
+  0% {
+    transform: rotateX(0deg);
+  }
+  25% {
+    transform: rotateX(-45deg);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  75% {
+    transform: rotateX(-135deg);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.why-register,
+.pitchers-description,
+.pitchers-description .highlight,
+.rules-heading,
+.rules-description,
+.rules-list {
+  @apply font-Noot font-normal text-center;
+}
+
+.why-register {
+  @apply  text-[#EEFF00] w-full max-w-[500px] mx-auto flex justify-center items-center p-[1vw] text-center;
+  font-size: clamp(18px, 6vw, 48px);
+}
+
+.pitchers-description {
+  @apply w-full leading-[130%] tracking-[0.02em] text-white p-[3vw] mx-auto my-[4vh];
+  font-size: clamp(20px, 2.5vw, 34px);
+}
+
+.pitchers-description .highlight {
+  @apply block text-[#EEFF00] leading-[120%] tracking-[0.02em] my-[3vh];
+  font-size: clamp(18px, 6vw, 48px);
+}
+
+.comic-bursts {
+  @apply relative w-full overflow-hidden z-[2] pointer-events-none my-[0vh] h-[20vh];
+}
+
+.burst-left {
+  @apply absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-[25vw] h-[25vw] max-w-[500px] max-h-[200px] object-contain;
+}
+
+.burst-right {
+  @apply absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-[25vw] h-[25vw] max-w-[200px] max-h-[200px] object-contain;
+}
+
+.rules-section {
+  @apply w-full mx-auto my-[1vh] relative z-10;
+}
+
+.rules-heading {
+  @apply text-[#EEFF00] leading-[100%] tracking-[0.02em] mb-[1vh] text-center;
+  font-size: clamp(18px, 8vw, 96px); 
+  margin-bottom: clamp(8px, 2vh, 16px);
+}
+
+.rules-description {
+  @apply w-full max-w-[800px] mx-auto leading-[140%] tracking-[0.02em] text-white p-[2vw] text-center;
+  font-size: clamp(16px, 2.5vw, 22px);
+}
+
+.rules-list {
+  @apply list-disc pl-[2rem] w-full max-w-[800px] mx-auto text-white m-0;
+  font-size: clamp(16px, 2.2vw, 20px);
+  line-height: 1.3;
+}
+
+.rules-list li {
+  @apply mb-[1.5vh];
+}
+
+.rules-list li::marker {
+  @apply text-white;
+  font-size: clamp(14px, 2vw, 18px);
+}
+.footer {
+  @apply flex flex-col md:flex-row justify-between items-start bg-black text-white p-12 md:p-16 gap-8 md:gap-12 w-full;
+}
+
+.footer-column {
+  @apply flex flex-col w-full md:w-1/3 mb-8 md:mb-0 space-y-6;
+}
+
+.footer .title {
+  @apply font-bold text-white mb-[2vh] font-poppins tracking-wider uppercase;
+  font-size: clamp(16px, 4vw, 24px); 
+}
+.footer .divider {
+  @apply h-[0.3vh] bg-white;
+  width: clamp(80px, 20vw, 120px); 
+  
+}
+.social-item,
+.footer .description {
+  @apply text-gray-300 font-poppins transition-all duration-300;
+  font-size: clamp(12px, 2.5vw, 16px); 
+  text-align: left;
+}
+.social-item {
+  @apply block hover:text-[#EEFF00] mb-[1vh] no-underline px-3 py-2 rounded-lg relative overflow-hidden cursor-pointer;
+  position: relative;
+}
+
+.social-item::before {
+  @apply absolute top-0 -left-full w-full h-full bg-white/20 transition-all duration-500;
+  content: '';
+  z-index: 0;
+}
+
+.social-item:hover::before {
+  @apply left-full;
+}
+
+.social-item:hover {
+  @apply translate-x-1 scale-105 relative z-10;
+}
+
+.social-item[href*="linkedin"]:hover {
+  @apply bg-[#0077B5] text-white;
+}
+
+.social-item[href*="instagram"]:hover {
+  @apply bg-gradient-to-br from-[#f09433] via-[#e6683c] to-[#bc1888] text-white;
+}
+
+.social-item[href*="facebook"]:hover {
+  @apply bg-[#1877F2] text-white;
+}
+
+.social-item[href*="youtube"]:hover {
+  @apply bg-[#FF0000] text-white;
+}
+
+.description {
+  @apply font-poppins leading-relaxed;
+}
+
+

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Profile.css';
-import background from './assets/background_profile.png';
-import useAuthStore from '../lib/store';
+import '../styles/Profile.css';
+import background from '../assets/background_profile.png';
+import useAuthStore from '../../lib/store';
 
 
 function logout() {
@@ -103,16 +103,6 @@ export default function Profile() {
             overflow: 'hidden',
   }}
     >
-      <header className='topbar'>
-        <button className='backButton' onClick={() => navigate('/')}>
-            ‹ Back to Home
-        </button>
-        <nav className='nav'>
-          <a onClick={() => navigate('/rules')}>Rules</a>
-          <a onClick={() => navigate('/teams')}>Teams</a>
-          <a onClick={() => navigate('/investments')}>Investments</a>
-        </nav>
-      </header>
 
       <main className='centerWrap'>
         <div className='card'>
