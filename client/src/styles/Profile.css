@@ -1,0 +1,191 @@
+@font-face {
+  font-family: 'Noot';
+  src: url('./assets/fonts/Noot.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@import "tailwindcss";
+
+.page {
+  min-height: 100vh;
+  min-width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 18px;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.backButton {
+  background: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.nav {
+  color: #fff;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.centerWrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 560px;
+  max-width: calc(100% - 48px);
+  background: linear-gradient(180deg, rgba(255,235,180,0.98), rgba(255,235,180,0.95));
+  border-radius: 18px;
+  border: 6px solid #000;
+  padding: 26px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.header {
+  font-family: 'Noot', serif;
+  font-size: 2.2rem;
+  color: #111;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.subheader {
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 18px;
+  font-family: 'Noot', serif;
+}
+
+.title {
+  margin: 0 0 8px 0;
+  font-family: 'Noot', serif;
+  font-size: 1.8rem;
+  color: #111;
+}
+
+.remaining {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  color: #222;
+    font-family: 'Noot', serif;
+}
+
+/* scrollable list container */
+.listWrap {
+  height: 240px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: transparent;
+  padding-right: 8px;
+  padding-bottom: 4px; /* room for custom scrollbar */
+}
+
+.list {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 6px;
+}
+
+/* custom scrollbar */
+.list::-webkit-scrollbar {
+  width: 10px;
+}
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.list::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.4);
+  border-radius: 8px;
+  border: 2px solid rgba(255,235,180,0.9);
+}
+
+/* each investment row */
+.item {
+  background: rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: inset 0 -6px 18px rgba(0,0,0,0.06);
+  font-weight: 600;
+}
+
+.teamName {
+  color: #2a2a2a;
+  font-size: 1.6rem;
+  padding-top: 12px;
+  font-family: 'Noot', serif;
+}
+
+.amount {
+  background: rgba(0, 0, 0, 0.041);
+  padding: 8px 16px;
+  padding-top: 14px;
+  margin-top: 4px;
+  border-radius: 12px;
+  color: #111;
+  min-width: 90px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.2rem;
+  font-family: 'Noot', serif;
+}
+
+/* logout button fixed bottom-right */
+.logout {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* error banner (shown then redirects) */
+.errorBanner {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 80px;
+  background: rgba(255, 80, 80, 0.95);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+}
