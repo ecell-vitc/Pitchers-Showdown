@@ -107,7 +107,7 @@ export default function Profile() {
       <main className='centerWrap'>
         <div className='card'>
             <div className='header'>
-              Your Investments
+              Your Investments!
             </div>
             <div className='subheader'> 
               Remaining Investment Amount: {useAuthStore.getState().balance.toLocaleString()}

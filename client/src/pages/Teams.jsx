@@ -6,7 +6,7 @@ function Teams() {
   const [allTeams, setAllTeams] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
-  const teamsPerPage = 7;
+  const teamsPerPage = 9;
   const navigate = useNavigate()
 
   // Fetch business teams from API
@@ -62,11 +62,11 @@ function Teams() {
   // Get business team color based on index 
   const getTeamColor = (index) => {
     const colors = [
-      '#FF8C00', // Orange (Team 1)
+      '#de9932ff', // Orange (Team 1)
       '#FF0000', // Red (Team 2)
-      '#00FF00', // Green (Team 3)
+      '#3da53dff', // Green (Team 3)
       '#FF00FF', // Pink (Team 4)
-      '#0000FF', // Blue (Team 5)
+      '#4b4be2', // Blue (Team 5)
       '#87CEEB', // Light Blue (Team 6)
       '#7CFC00', // Lime Green (Team 7)
     ];
@@ -112,17 +112,17 @@ function Teams() {
       <div className="teams-content">
         {/* Left Navigation Arrow */}
         <div className="nav-arrow left-arrow" onClick={goToPreviousPage}>
-          <div className="arrow-icon">←</div>
+          <div className="arrow-icon">&laquo;</div>
         </div>
 
         {/* Teams Grid */}
-        <div className="teams-grid">
+        <div className="grid grid-cols-3 gap-8 bg-[#edcdaf] p-8">
           {/* Show 7 teams per page in 2-3-2 layout */}
           {currentTeams.map((team, index) => (
             
             <div
               key={team.id}
-              className={`team-panel team-${(index % 7) + 1}`}
+              className={`team-panel w-[200px] h-[200px]`}
               style={{ backgroundColor: getTeamColor(index) }}
               onClick={() => handleTeamClick(team)}
             >
@@ -134,7 +134,7 @@ function Teams() {
 
         {/* Right Navigation Arrow */}
         <div className="nav-arrow right-arrow" onClick={goToNextPage}>
-          <div className="arrow-icon">→</div>
+          <div className="arrow-icon">&raquo;</div>
         </div>
       </div>
 

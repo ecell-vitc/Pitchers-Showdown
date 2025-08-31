@@ -10,8 +10,8 @@ function Homepage() {
       <div className="bg">
       <div className="page-container pt-10">
         <Title />
-        <FlipTimer />
-        <Desc />
+        {/* <FlipTimer /> */}
+        {/* <Desc /> */}
         </div>
         <Footer />
       </div>

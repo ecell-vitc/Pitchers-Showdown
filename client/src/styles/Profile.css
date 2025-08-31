@@ -60,7 +60,7 @@
 }
 
 .card {
-  width: 560px;
+  width: 560px; height: 75vh;
   max-width: calc(100% - 48px);
   background: linear-gradient(180deg, rgba(255,235,180,0.98), rgba(255,235,180,0.95));
   border-radius: 18px;
@@ -79,7 +79,7 @@
 }
 
 .subheader {
-  font-size: 1rem;
+  font-size: 22px;
   color: #222;
   margin-bottom: 18px;
   font-family: 'Noot', serif;
@@ -101,7 +101,7 @@
 
 /* scrollable list container */
 .listWrap {
-  height: 240px;
+  height: 80%;
   overflow: hidden;
   border-radius: 10px;
   background: transparent;

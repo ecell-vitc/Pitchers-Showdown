@@ -165,12 +165,12 @@
 }
 
 .why-register {
-  @apply  text-[#EEFF00] w-full max-w-[500px] mx-auto flex justify-center items-center p-[1vw] text-center;
+  @apply  text-[#EEFF00] w-full md:max-w-[3/4] mx-auto flex justify-center items-center p-[1vw] text-center;
   font-size: clamp(18px, 6vw, 48px);
 }
 
 .pitchers-description {
-  @apply w-full leading-[130%] tracking-[0.02em] text-white p-[3vw] mx-auto my-[4vh];
+  @apply w-full leading-[130%] tracking-[0.02em] text-white mx-auto;
   font-size: clamp(20px, 2.5vw, 34px);
 }
 
@@ -246,6 +246,7 @@
 .social-item {
   @apply block hover:text-[#EEFF00] mb-[1vh] no-underline px-3 py-2 rounded-lg relative overflow-hidden cursor-pointer;
   position: relative;
+  font-size: 20px;
 }
 
 .social-item::before {
