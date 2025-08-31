@@ -150,13 +150,6 @@ function Teams() {
           </button>
         ))}
       </div>
-
-      {/* Footer */}
-      <footer className="teams-footer">
-        <a href="/logout" className="logout-link">
-          Logout →
-        </a>
-      </footer>
     </div>
   );
 }

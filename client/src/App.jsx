@@ -23,7 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/teams" element={<Teams />} /> 
-        <Route path="teams/:teamId" element={<BusinessPage />} />
+        <Route path="teams/:teamId" element={<PrivateRoute><BusinessPage /></PrivateRoute>} />
       </Routes>    
     </BrowserRouter>
   )  
