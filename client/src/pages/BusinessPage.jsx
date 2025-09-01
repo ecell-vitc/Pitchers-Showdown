@@ -67,12 +67,6 @@ export default function BusinessPage() {
                 onClick={e => e.stopPropagation()}
                 >
                 <h1 className="text-black" style={{ margin: 0, fontWeight: 600, fontSize: "1.4rem" }}>Team {team.team_name}</h1>
-                <a href={team.link} target="_blank" rel="noreferrer" style={{ color: "#3559e0" }}>
-                    Presentation
-                </a>
-                <div className="description">
-                    {team?.team_content ?? "Loading..."}
-                </div>
                 <form
                     className="investment-popup-form"
                     onSubmit={e => {
