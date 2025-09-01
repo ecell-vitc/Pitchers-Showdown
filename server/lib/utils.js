@@ -1,6 +1,8 @@
+const crypto = require('crypto')
 const prompt = require('prompt-sync')()
 const init = require('../models/init')
 const { User } = require('../models/user')
+const { Investment } = require('../models/pitcher')
 
 
 const getDetails = async (username) => {
@@ -8,6 +10,13 @@ const getDetails = async (username) => {
     if (!user) console.error('User not found!')
     
     return user
+}
+
+const revertInvestment = async (username) => {
+    let user = await getDetails(username)
+
+    await Investment.deleteMany({ user: user._id })
+    await updateUser(user, { Rbalance: 7000 })
 }
 
 const updateUser = async (user, data) => {
@@ -25,8 +34,9 @@ const updateUser = async (user, data) => {
 
 const addUser = async (data) => {
     try {
-        await (new User(data)).save()
-        console.log("Added successfully!")
+        let password = crypto.randomBytes(8).toString('hex')
+        await (new User({ ...data, password, desc: ' ', ppt: ' ' })).save()
+        console.log(`Added successfully: ${data.username} ${pass}`)
     } catch (err) {
         console.error(err)
     }
@@ -38,13 +48,10 @@ const main = async () => {
     while (true) {
         console.log('\n\n\n')
         let username = prompt('Enter username: ')
-        let password = prompt('Enter password: ')
         let name = prompt('Enter team name: ')
-        let desc = prompt('Enter brief description: ')
-        let ppt = prompt('Enter ppt link: ')
 
-        await addUser({ username, password, name, desc, ppt })
+        await addUser({ username, name })
     }
 }
 
-module.exports = { main, getDetails, updateUser }
+module.exports = { main, getDetails, updateUser, revertInvestment }
