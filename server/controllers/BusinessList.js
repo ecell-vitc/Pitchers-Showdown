@@ -23,7 +23,7 @@ const BusinessInfo = async (req, res) => {
     if (pitcher) {
       res.json({
         team_name: pitcher.name,
-        team_content: '',
+        team_content: pitcher.desc,
         link: pitcher.ppt,
       });
     } else {

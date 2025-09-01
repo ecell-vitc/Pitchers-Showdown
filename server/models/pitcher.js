@@ -12,6 +12,13 @@ const Investment = mongoose.model('Investment', {
     amt: Number
 })
 
+const Bonus = mongoose.model('Bonus', {
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    score: Number
+})
 
 
-module.exports = { Investment }
+module.exports = { Investment, Bonus }

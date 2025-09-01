@@ -19,7 +19,10 @@ const UserSchema = new mongoose.Schema({
     },
     Rbalance: {   // remaining balance
         type: Number,
-        default: 1000,
+        default: 7000,
+    },
+    desc: {
+        type: String, required: true
     },
     ppt: String
 });

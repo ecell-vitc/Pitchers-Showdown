@@ -11,12 +11,25 @@ const getDetails = async (username) => {
 }
 
 const updateUser = async (user, data) => {
-    Object.keys(data).forEach(key => {
-        user[key] = data[key]
-    })
-    await user.save()
+    try {
+        Object.keys(data).forEach(key => {
+            user[key] = data[key]
+        })
+        await user.save()
+        console.log("Updated successfully!")
+    } catch (err) {
+        console.error(err)
+    }
 
-    console.log("Updated successfully!")
+}    
+
+const addUser = async (data) => {
+    try {
+        await (new User(data)).save()
+        console.log("Added successfully!")
+    } catch (err) {
+        console.error(err)
+    }
 }
 
 const main = async () => {
@@ -24,19 +37,13 @@ const main = async () => {
 
     while (true) {
         console.log('\n\n\n')
-        let username = prompt('Enter username to search: ')
-        if (username == "-1") break;
-    
-        const user = await getDetails(username)
-        console.log(user)
-        if (!user) continue;
-    
-        username = prompt("Enter new username: ")
-        password = prompt("Enter new password: ")
+        let username = prompt('Enter username: ')
+        let password = prompt('Enter password: ')
+        let name = prompt('Enter team name: ')
+        let desc = prompt('Enter brief description: ')
+        let ppt = prompt('Enter ppt link: ')
 
-        if (!username || !password) continue;
-    
-        await updateUser(user, { username, password })
+        await addUser({ username, password, name, desc, ppt })
     }
 }
 
