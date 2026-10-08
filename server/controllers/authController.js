@@ -35,7 +35,7 @@ const registerUser = async (req, res) => {
             return res.status(400).json({ message: 'Username already exists' });
         }
 
-        const newUser = new User({ username, password, name });
+        const newUser = new User({ username, password, name, desc: 'Pitcher at Pitchers Showdown', ppt: ' ' });
         await newUser.save(); 
 
         res.status(201).json({ message: 'User registered successfully' });
